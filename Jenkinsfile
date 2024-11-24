@@ -4,8 +4,10 @@ pipeline {
   stages {
     stage('Begin') {
       steps {
-        step <object of type org.jenkinsci.plugins.habitat.HabitatExecutor>
-        echo 'Begin..'
+        wrap([$class: 'TimestamperBuildWrapper']) {
+          step <object of type org.jenkinsci.plugins.habitat.HabitatExecutor>
+          echo 'Begin..'
+        }
       }
     }
     stage('Download') {
