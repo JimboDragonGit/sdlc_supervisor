@@ -19,7 +19,6 @@ pipeline {
         wrap([$class: 'TimestamperBuildWrapper']) {
           tool name: 'Default', type: 'git'
           echo 'Verify..'
-          }
         }
       }
     }
