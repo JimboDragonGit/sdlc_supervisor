@@ -4,6 +4,7 @@ pipeline {
   stages {
     stage('Begin') {
       steps {
+        step <object of type org.jenkinsci.plugins.habitat.HabitatExecutor>
         echo 'Begin..'
       }
     }
