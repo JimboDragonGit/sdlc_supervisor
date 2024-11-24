@@ -4,20 +4,23 @@ pipeline {
   stages {
     stage('Begin') {
       steps {
-        wrap([$class: 'TimestamperBuildWrapper']) {
-          step <object of type org.jenkinsci.plugins.habitat.HabitatExecutor>
-          echo 'Begin..'
-        }
+        echo 'Begin..'
       }
     }
     stage('Download') {
       steps {
-        echo 'Download..'
+        wrap([$class: 'TimestamperBuildWrapper']) {
+          echo 'Download..'
+        }
       }
     }
     stage('Verify') {
       steps {
-        echo 'Verify..'
+        wrap([$class: 'TimestamperBuildWrapper']) {
+          tool name: 'Default', type: 'git'
+          echo 'Verify..'
+          }
+        }
       }
     }
     stage('Clean') {
